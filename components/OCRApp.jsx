@@ -143,7 +143,7 @@ export default function OCRApp() {
           {/* Header */}
           <div className="ocr-header">
             <FileText style={{ width: 40, height: 40, color: "#4f46e5" }} />
-            <h1 className="ocr-title">AI OCR System</h1>
+            <h1 className="ocr-title">Document OCR AI System</h1>
           </div>
 
           {/* Upload */}
