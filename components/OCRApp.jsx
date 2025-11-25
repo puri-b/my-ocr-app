@@ -178,18 +178,7 @@ export default function OCRApp() {
               </div>
             </label>
           </div>
-
-          {/* Prompt */}
-          <div style={{ marginBottom: 16 }}>
-            <label className="ocr-label">คำสั่งสำหรับ AI</label>
-            <textarea
-              className="ocr-textarea"
-              rows={3}
-              value={prompt}
-              onChange={(e) => setPrompt(e.target.value)}
-            />
-          </div>
-
+          
           {/* Output format */}
           <div style={{ marginBottom: 16 }}>
             <label className="ocr-label">รูปแบบไฟล์ผลลัพธ์</label>
