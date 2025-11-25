@@ -14,7 +14,7 @@ export default function OCRApp() {
   const [error, setError] = useState(null);
 
   // โปรเจคทดลอง: ใส่ API key ตรงนี้ได้เลย
-  const apiKey = "AIzaSyCIetlcITSuMUIa4u8cT4xNoIyQbhIHoH0";
+  const apiKey = "AIzaSyCz-2S2G6HHts67KkXgiNItz8NqUEGJLP8";
 
   const handleFileChange = (e) => {
     const selected = e.target.files?.[0];
