@@ -6,7 +6,7 @@ import { Upload, FileText, Download, Loader2 } from "lucide-react";
 export default function OCRApp() {
   const [file, setFile] = useState(null);
   const [prompt, setPrompt] = useState(
-    "อ่านข้อความจากไฟล์นี้และสกัดข้อมูลทั้งหมดออกมา เป็นแต่ละ item โดยเรียงเป็น Column จากซ้ายไปขวา Column A = Customer Name ,Column B =Ship to,Column C = Address,Column D = Zone,Column E = Contact person,Column F = Customer Code,Column G = Doc Reference ,Column H =Invoice Dated,Column I = Order Booked by,Column J = PO,Column K = Item Code & Name,Column L = Batch no,Column M = Quantity,Column N = Bonus,Column O = % SP,Column P = Unit Price,Column Q = CT Total ,Column R =Total Value (Included CT),Column S = Total Before Tax ,Column T =Commercial Tax,Column U = Agency Discount,Column V = OverALL Discount ,Column W =Grand Total ,Column X =*Credit Note Amount,Column Y = Net Payable ,Column Z =Credit ,Column AA =Due on ,Column AB =Remarks ,Column AC =Invoice Ref "
+    "อ่านข้อความจากไฟล์นี้และสกัดข้อมูลทั้งหมดออกมาเป็นตาราง โดยแยกเป็น Column แบบ Excel โดยแสดงผลลัพธ์เป็นตาราง Markdown โดยมีหัวตารางดังนี้: Customer Name | Ship to | Address | Zone | Contact person | Customer Code | Doc Reference | Invoice Dated | Order Booked by | PO | Item Code & Name | Batch no | Quantity | Bonus | % SP | Unit Price | CT Total | Total Value (Included CT) | Total Before Tax | Commercial Tax | Agency Discount | OverALL Discount | Grand Total | Credit Note Amount | Net Payable | Credit | Due on | Remarks | Invoice Ref จากนั้นให้นำข้อมูลทุกแถวมาจัดให้อยู่ใต้หัวข้อแต่ละ Column โดยแยกข้อมูลตามเครื่องหมายคอมม่า ( , ) **ห้ามรวมข้อมูลทุกอย่างไว้ใน Column เดียว**"
   );
   const [outputFormat, setOutputFormat] = useState("txt");
   const [loading, setLoading] = useState(false);
