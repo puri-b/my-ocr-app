@@ -6,7 +6,7 @@ import { Upload, FileText, Download, Loader2 } from "lucide-react";
 export default function OCRApp() {
   const [file, setFile] = useState(null);
   const [prompt, setPrompt] = useState(
-    "ให้คุณอ่านข้อความจากไฟล์นี้ แล้วแปลงเป็น CSV แบบแยก Columns โดยใช้คอมม่า (,) เป็นตัวแบ่ง หัวตารางมีดังนี้: Customer Name, Ship to, Address, Zone, Contact person, Customer Code, Doc Reference, Invoice Dated, Order Booked by, PO, Item Code & Name, Batch no, Quantity, Bonus, % SP, Unit Price, CT Total, Total Value (Included CT), Total Before Tax, Commercial Tax, Agency Discount, OverALL Discount, Grand Total, Credit Note Amount, Net Payable, Credit, Due on, Remarks, Invoice Ref **อย่ารวมข้อมูลไว้ใน Cell เดียวเด็ดขาด** ให้แสดงผลเป็น CSV เท่านั้น เช่น: A,B,C,D,... 1,2,3,4,..."
+    "อ่านข้อความจากไฟล์นี้และสกัดข้อมูลทั้งหมดออกมา เป็นแต่ละ item โดยเรียงเป็น Column จากซ้ายไปขวา Column A = Customer Name ,Column B =Ship to,Column C = Address,Column D = Zone,Column E = Contact person,Column F = Customer Code,Column G = Doc Reference ,Column H =Invoice Dated,Column I = Order Booked by,Column J = PO,Column K = Item Code & Name,Column L = Batch no,Column M = Quantity,Column N = Bonus,Column O = % SP,Column P = Unit Price,Column Q = CT Total ,Column R =Total Value (Included CT),Column S = Total Before Tax ,Column T =Commercial Tax,Column U = Agency Discount,Column V = OverALL Discount ,Column W =Grand Total ,Column X =*Credit Note Amount,Column Y = Net Payable ,Column Z =Credit ,Column AA =Due on ,Column AB =Remarks ,Column AC =Invoice Ref แล้วได้ผลลัพธ์มาให้ทำ text to column แยก Column โดยยึดจาก |"
   );
   const [outputFormat, setOutputFormat] = useState("txt");
   const [loading, setLoading] = useState(false);
