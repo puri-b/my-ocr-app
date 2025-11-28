@@ -6,7 +6,7 @@ import { Upload, FileText, Download, Loader2 } from "lucide-react";
 export default function OCRApp() {
   const [file, setFile] = useState(null);
   const [prompt, setPrompt] = useState(
-    "อ่านข้อความจากไฟล์นี้และสกัดข้อมูลทั้งหมดออกมา เป็นแต่ละ item โดยเรียงเป็น Column จากซ้ายไปขวาทั้งหมดใน 1 role"
+    "อ่านข้อความจากไฟล์นี้และสกัดข้อมูลทั้งหมดออกมา เป็นแต่ละ item โดยเรียงเป็น Column จากซ้ายไปขวา ประกอบด้วยCustomer Name ,Ship to, Address, Zone, Contact person, Customer Code, Doc Reference ,Invoice Dated, Order Booked by, PO, Item Code & Name, Batch no, Quantity, Bonus, % SP, Unit Price, CT Total ,Total Value (Included CT), Total Before Tax ,Commercial Tax, Agency Discount, OverALL Discount ,Grand Total ,*Credit Note Amount, Net Payable ,Credit ,Due on ,Remarks ,Invoice Ref "
   );
   const [outputFormat, setOutputFormat] = useState("txt");
   const [loading, setLoading] = useState(false);
