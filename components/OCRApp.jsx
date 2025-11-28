@@ -6,7 +6,7 @@ import { Upload, FileText, Download, Loader2 } from "lucide-react";
 export default function OCRApp() {
   const [file, setFile] = useState(null);
   const [prompt, setPrompt] = useState(
-    "อ่านข้อความจากไฟล์นี้และสกัดข้อมูลทั้งหมดออกมา"
+    "อ่านข้อความจากไฟล์นี้และสกัดข้อมูลทั้งหมดออกมา เป็นแต่ละ item โดยเรียงเป็น Column จากซ้ายไปขวาทั้งหมดใน 1 role"
   );
   const [outputFormat, setOutputFormat] = useState("txt");
   const [loading, setLoading] = useState(false);
