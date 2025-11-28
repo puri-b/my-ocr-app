@@ -6,7 +6,7 @@ import { Upload, FileText, Download, Loader2 } from "lucide-react";
 export default function OCRApp() {
   const [file, setFile] = useState(null);
   const [prompt, setPrompt] = useState(
-    "ให้คุณอ่านข้อความจากไฟล์นี้ แล้วแปลงเป็น CSV แบบแยก Columns โดยใช้คอมม่า (,) เป็นตัวแบ่ง หัวตารางมีดังนี้: Customer Name, Ship to, Address, Zone, Contact person, Customer Code, Doc Reference, Invoice Dated, Order Booked by, PO, Item Code & Name, Batch no, Quantity, Bonus, % SP, Unit Price, CT Total, Total Value (Included CT), Total Before Tax, Commercial Tax, Agency Discount, OverALL Discount, Grand Total, Credit Note Amount, Net Payable, Credit, Due on, Remarks, Invoice Ref **อย่ารวมข้อมูลไว้ใน Cell เดียวเด็ดขาด** **ถ้าข้อมูลมีคอมม่าอยู่ในเนื้อหา ให้ใส่ไว้ในเครื่องหมาย " " เพื่อไม่ให้ Column เพี้ยน** ให้แสดงผลเป็น CSV เท่านั้น เช่น: A,B,C,D,... 1,2,3,4,..."
+    "ให้คุณอ่านข้อความจากไฟล์นี้ แล้วแปลงเป็น CSV แบบแยก Columns โดยใช้คอมม่า (,) เป็นตัวแบ่ง หัวตารางมีดังนี้: Customer Name, Ship to, Address, Zone, Contact person, Customer Code, Doc Reference, Invoice Dated, Order Booked by, PO, Item Code & Name, Batch no, Quantity, Bonus, % SP, Unit Price, CT Total, Total Value (Included CT), Total Before Tax, Commercial Tax, Agency Discount, OverALL Discount, Grand Total, Credit Note Amount, Net Payable, Credit, Due on, Remarks, Invoice Ref **อย่ารวมข้อมูลไว้ใน Cell เดียวเด็ดขาด** ให้แสดงผลเป็น CSV เท่านั้น เช่น: A,B,C,D,... 1,2,3,4,..."
   );
   const [outputFormat, setOutputFormat] = useState("txt");
   const [loading, setLoading] = useState(false);
