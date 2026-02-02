@@ -13,8 +13,8 @@ export default function OCRApp() {
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
 
-  // โปรเจคทดลอง: ใส่ API key ตรงนี้ได้เลย
-  const apiKey = "AIzaSyCl8JyiTKvHrmQo2YEPB9radWfAwyVbiso";
+  // ❗️ห้ามใส่ API Key ฝั่ง client (โดนขโมยง่าย + มักติด restriction)
+  // ให้ตั้งค่าในไฟล์ .env.local เป็น GEMINI_API_KEY แล้วเรียกผ่าน /api/ocr แทน
 
   const handleFileChange = (e) => {
     const selected = e.target.files?.[0];
@@ -78,20 +78,27 @@ export default function OCRApp() {
         ],
       };
 
-      const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(requestBody),
-        }
-      );
+      // เรียกผ่าน API route ของเรา (server-side) เพื่อหลีกเลี่ยง 403 จาก key restriction
+      const response = await fetch("/api/ocr", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          requestBody,
+          // ส่งแค่ชื่อ/ชนิดไฟล์ไว้เพื่อ debug
+          meta: { name: file.name, type: file.type, size: file.size },
+        }),
+      });
+
+      // อ่าน body ก่อน เพื่อโชว์สาเหตุจริง (Google มักส่ง JSON error ที่บอกเหตุผล 403)
+      const data = await response.json().catch(() => ({}));
 
       if (!response.ok) {
-        throw new Error(`API Error: ${response.status}`);
+        const msg =
+          data?.error?.message ||
+          data?.message ||
+          `API Error: ${response.status}`;
+        throw new Error(msg);
       }
-
-      const data = await response.json();
       const text =
         data.candidates?.[0]?.content?.parts
           ?.map((p) => p.text || "")
